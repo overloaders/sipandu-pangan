@@ -265,6 +265,30 @@
         .error-msg ul { margin: 0; padding-left: 16px; }
         .error-msg li { margin-bottom: 2px; }
 
+        .manual-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 18px;
+            padding: 10px 16px;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #475569;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .manual-link:hover {
+            border-color: #10b981;
+            color: #059669;
+            background: #ecfdf5;
+        }
+
+        .manual-link i { color: #10b981; }
+
         .form-footer {
             position: absolute;
             bottom: 20px;
@@ -274,6 +298,9 @@
             font-size: 12px;
             color: #94a3b8;
         }
+
+        .form-footer a { color: #64748b; text-decoration: underline; }
+        .form-footer a:hover { color: #059669; }
 
         /* Responsive */
         @media (max-width: 900px) {
@@ -366,8 +393,14 @@
             </button>
         </form>
 
+        <a href="{{ route('manual') }}" class="manual-link">
+            <i class="fas fa-book-open"></i>
+            Baca Manual Book
+        </a>
+
         <div class="form-footer">
-            &copy; {{ date('Y') }} SIDUMA PANGAN
+            &copy; {{ date('Y') }} SIDUMA PANGAN &middot;
+            <a href="{{ route('manual') }}">Panduan Pengguna</a>
         </div>
     </div>
 </body>

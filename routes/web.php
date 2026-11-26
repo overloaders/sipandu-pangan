@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
+// Manual Book (publik, tanpa login)
+Route::view('/manual', 'manual')->name('manual');
+
 // Auth Routes
 Route::get('/login', [App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'create'])->name('login');
 Route::post('/login', [App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'store']);

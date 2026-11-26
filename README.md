@@ -4,6 +4,9 @@ Sistem informasi terpadu untuk pengelolaan program ketahanan pangan di lingkunga
 
 Dibangun dengan **Laravel 13** + **AdminLTE 3**.
 
+> 👨‍💻 **Pengembang:** KerangRendang — <overload.xp@gmail.com>
+> 📘 **Manual Book pengguna:** tersedia di `/manual` (juga tertaut dari halaman login).
+
 ## ✨ Fitur Utama
 
 | Modul | Cakupan |
@@ -274,6 +277,27 @@ php artisan storage:link
    ```bash
    /etc/init.d/php-fpm-74 restart
    ```
+
+---
+
+## 👨‍💻 Pengembang
+
+| | |
+|---|---|
+| **Nama** | KerangRendang |
+| **Email** | [overload.xp@gmail.com](mailto:overload.xp@gmail.com) |
+| **GitHub** | [@overloaders](https://github.com/overloaders) |
+| **Repositori** | [overloaders/sipandu-pangan](https://github.com/overloaders/sipandu-pangan) |
+
+Aplikasi ini dikembangkan dan dipelihara oleh **KerangRendang**. Untuk pertanyaan teknis,
+permintaan fitur, atau laporan bug, silakan hubungi email di atas atau buka
+[issue di repositori](https://github.com/overloaders/sipandu-pangan/issues).
+
+### 📘 Manual Book Pengguna
+
+Panduan penggunaan lengkap (login, dashboard, seluruh modul, alur status, laporan, API, dan
+troubleshooting) tersedia sebagai halaman publik di **`/manual`** dan dapat dibuka langsung dari
+halaman login tanpa perlu masuk. Isinya dilengkapi 30 screenshot antarmuka aplikasi.
 
 ---
 
