@@ -47,7 +47,6 @@ jobs:
       - name: Siapkan file environment
         run: |
           cp .env.example .env
-          php artisan key:generate
           mkdir -p storage/framework/{sessions,views,cache} storage/logs bootstrap/cache
 
       - name: Cache composer
@@ -59,6 +58,9 @@ jobs:
 
       - name: Install dependencies
         run: composer install --no-interaction --prefer-dist --no-progress
+
+      - name: Buat application key
+        run: php artisan key:generate
 
       - name: Jalankan migrasi database
         run: php artisan migrate --force --no-interaction
