@@ -42,6 +42,10 @@ Thumbs.db
 /storage/api-docs
 /storage/app/pdfcheck
 
+# --- Konfigurasi server-spesifik (path absolut open_basedir, dll) ---
+/public/.user.ini
+.user.ini
+
 # --- ACME challenge (dibuat server, bukan bagian aplikasi) ---
 /.well-known
 /public/.well-known

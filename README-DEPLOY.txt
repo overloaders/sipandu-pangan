@@ -60,8 +60,50 @@ perintah di atas.
 - Pastikan folder storage/ dan bootstrap/cache/ bisa ditulis
   (chmod 775 / 755 di cPanel: File Manager -> pilih folder ->
   Permissions).
+- PENTING: pemilik (owner) file juga harus user web server.
+  File yang dimiliki root akan membuat halaman error 500
+  ("Server Error"), karena PHP tidak bisa menulis session, cache,
+  maupun log. Ini sering terjadi setelah upload sebagai root atau
+  setelah menjalankan git checkout/reset/pull sebagai root.
+
+  Jalankan lewat SSH / Terminal cPanel (ganti USER_WEB dengan user
+  hosting Anda, mis. nama akun cPanel atau "www"):
+
+    chown -R USER_WEB:USER_WEB storage bootstrap/cache
+    chmod -R ug+rwX storage bootstrap/cache
+
+  Cek apakah masih ada file milik root:
+    find storage bootstrap/cache ! -user USER_WEB
+  (tidak ada output = sudah benar)
+
+- File public/.user.ini TIDAK disertakan di repo karena isinya
+  server-spesifik (open_basedir menunjuk path absolut server).
+  Jika hosting membutuhkannya, buat manual di folder public/ dan
+  sesuaikan path-nya, contoh:
+    open_basedir=/home/USER_WEB/domain-anda.com/:/tmp/
+  Path yang salah di file ini bisa membuat SEMUA halaman 500
+  ("open_basedir restriction in effect").
+- Jika muncul 500, baca penyebab aslinya di:
+    storage/logs/laravel.log
+  Pastikan file log tersebut juga milik USER_WEB; kalau milik root,
+  error tidak akan tercatat sama sekali.
 - Buka https://domain-anda.com — seharusnya muncul halaman login.
   Login dengan akun admin yang sudah ada di database.
+
+--------------------------------------------------------------------
+ CATATAN GIT / UPDATE KODE
+--------------------------------------------------------------------
+Jika meng-update kode dengan git (pull/checkout/reset) di server:
+- Jalankan sebagai USER_WEB, bukan root. Jika terpaksa sebagai root,
+  file yang ditulis ulang akan menjadi milik root dan aplikasi
+  kembali 500. Setelah itu WAJIB jalankan ulang perintah di LANGKAH 5:
+    chown -R USER_WEB:USER_WEB storage bootstrap/cache
+    chmod -R ug+rwX storage bootstrap/cache
+- Setelah update, bersihkan cache lama:
+    php artisan optimize:clear
+    php artisan config:cache
+    php artisan route:cache
+    php artisan view:cache
 
 --------------------------------------------------------------------
  SYARAT HOSTING
