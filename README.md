@@ -1,5 +1,7 @@
 # SIDUMA PANGAN
 
+[![CI](https://github.com/overloaders/sipandu-pangan/actions/workflows/ci.yml/badge.svg)](https://github.com/overloaders/sipandu-pangan/actions/workflows/ci.yml)
+
 Sistem informasi terpadu untuk pengelolaan program ketahanan pangan di lingkungan pemasyarakatan. Mencakup pendataan WBP, blok & kamar hunian, program pangan, pertanian, peternakan, perikanan, inventaris, distribusi, keuangan, pelatihan, hingga pelaporan dan analitik — tersedia sebagai **panel web (AdminLTE 3)** dan **REST API v1 (Sanctum)**.
 
 Dibangun dengan **Laravel 13** + **AdminLTE 3**.
