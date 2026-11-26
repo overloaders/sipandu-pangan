@@ -297,7 +297,8 @@ permintaan fitur, atau laporan bug, silakan hubungi email di atas atau buka
 
 Panduan penggunaan lengkap (login, dashboard, seluruh modul, alur status, laporan, API, dan
 troubleshooting) tersedia sebagai halaman publik di **`/manual`** dan dapat dibuka langsung dari
-halaman login tanpa perlu masuk. Isinya dilengkapi 30 screenshot antarmuka aplikasi.
+halaman login tanpa perlu masuk. Isinya dilengkapi 43 screenshot antarmuka aplikasi
+(1280x800, diambil dari aplikasi yang berjalan).
 
 ---
 

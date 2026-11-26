@@ -878,6 +878,12 @@
                     </li>
                     @endif
                     @endauth
+                    <li class="nav-item">
+                        <a href="{{ route('manual') }}" target="_blank" rel="noopener" class="nav-link">
+                            <i class="nav-icon fas fa-book-open"></i>
+                            <p>Manual Book <i class="fas fa-external-link-alt" style="font-size:10px;opacity:.6"></i></p>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -910,6 +916,10 @@
 
     <footer class="main-footer" style="text-align:center;font-size:12px;color:#94a3b8;">
         <strong>&copy; {{ date('Y') }} SIDUMA PANGAN</strong> — Sistem Informasi Terpadu Pemasyarakatan dan Ketahanan Pangan
+        <span style="margin:0 6px;">&middot;</span>
+        <a href="{{ route('manual') }}" target="_blank" rel="noopener" style="color:#059669;font-weight:600;">
+            <i class="fas fa-book-open"></i> Manual Book
+        </a>
     </footer>
 </div>
 

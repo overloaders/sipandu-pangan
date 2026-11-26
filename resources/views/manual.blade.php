@@ -401,6 +401,14 @@
                     sehingga panduan ini bisa dibuka tanpa harus masuk terlebih dahulu.
                 </p>
 
+                <div class="shots">
+                    <figure class="shot wide">
+                        <div class="frame"><span></span><span></span><span></span><em>Halaman login</em></div>
+                        <img src="{{ asset('manual-assets/shots/login.png') }}" alt="Halaman login SIDUMA PANGAN" loading="lazy">
+                        <figcaption>Halaman login: formulir email &amp; password, opsi “Ingat saya”, dan tombol <strong>Baca Manual Book</strong> di bawah tombol Masuk.</figcaption>
+                    </figure>
+                </div>
+
                 <div class="note warn">
                     <i>⚠️</i> Lupa password? Fitur reset mandiri belum disediakan. Hubungi
                     administrator (Super Admin) untuk dilakukan reset melalui menu
@@ -662,9 +670,22 @@
                     irigasi, dan status pemanfaatannya. Lahan menjadi pilihan saat membuat rencana
                     kerja pertanian.
                 </p>
+                <div class="shots">
+                    <figure class="shot">
+                        <div class="frame"><span></span><span></span><span></span><em>Daftar lahan</em></div>
+                        <img src="{{ asset('manual-assets/shots/land-plots-index.png') }}" alt="Daftar lahan" loading="lazy">
+                        <figcaption>Ringkasan luas lahan, jumlah lahan produktif, dan daftar lahan per unit.</figcaption>
+                    </figure>
+                    <figure class="shot">
+                        <div class="frame"><span></span><span></span><span></span><em>Detail lahan</em></div>
+                        <img src="{{ asset('manual-assets/shots/land-plots-show.png') }}" alt="Detail lahan" loading="lazy">
+                        <figcaption>Detail lahan: luas, jenis tanah, irigasi, status, serta daftar rencana pertanian di lahan tersebut.</figcaption>
+                    </figure>
+                </div>
+
                 <h3>Menambah lahan</h3>
                 <p>Isi <strong>Kode Lahan</strong>, <strong>Nama Lahan</strong>, <strong>Unit</strong>, <strong>Luas (m²)</strong>, <strong>Jenis Tanah</strong>, <strong>Sistem Irigasi</strong>, <strong>Status</strong>, dan <strong>Keterangan</strong>.</p>
-                <p class="shot-hint">Gunakan aksi status untuk menandai lahan sedang dipakai, istirahat, atau tidak produktif.</p>
+                <p class="shot-hint">Gunakan aksi status untuk menandai lahan sedang dipakai, istirahat, atau tidak produktif. Daftar rencana pertanian pada halaman detail memudahkan pengecekan lahan yang sedang terpakai.</p>
             </section>
 
             <section id="pertanian">
@@ -689,6 +710,11 @@
                         <div class="frame"><span></span><span></span><span></span><em>Hasil panen</em></div>
                         <img src="{{ asset('manual-assets/shots/harvests-index.png') }}" alt="Daftar hasil panen" loading="lazy">
                         <figcaption>Rekap panen: total berat, kualitas, harga jual, dan pendapatan.</figcaption>
+                    </figure>
+                    <figure class="shot">
+                        <div class="frame"><span></span><span></span><span></span><em>Detail panen</em></div>
+                        <img src="{{ asset('manual-assets/shots/harvests-show.png') }}" alt="Detail hasil panen" loading="lazy">
+                        <figcaption>Detail panen: rencana kerja, lahan asal, berat, kualitas, harga jual, dan total pendapatan.</figcaption>
                     </figure>
                 </div>
 
@@ -741,10 +767,15 @@
                 </p>
 
                 <div class="shots">
-                    <figure class="shot tall">
+                    <figure class="shot">
                         <div class="frame"><span></span><span></span><span></span><em>Daftar kolam</em></div>
                         <img src="{{ asset('manual-assets/shots/fish-ponds-index.png') }}" alt="Daftar kolam ikan" loading="lazy">
                         <figcaption>Statistik kolam, luas total, dan daftar kolam per unit.</figcaption>
+                    </figure>
+                    <figure class="shot">
+                        <div class="frame"><span></span><span></span><span></span><em>Detail kolam</em></div>
+                        <img src="{{ asset('manual-assets/shots/fish-ponds-show.png') }}" alt="Detail kolam ikan" loading="lazy">
+                        <figcaption>Detail kolam: luas, kedalaman, volume, sumber air, dan catatan budidaya ikan.</figcaption>
                     </figure>
                 </div>
 
@@ -767,6 +798,11 @@
                         <img src="{{ asset('manual-assets/shots/nutrition-index.png') }}" alt="Rencana menu dan gizi" loading="lazy">
                         <figcaption>Daftar rencana menu, periode berlaku, target gizi, dan status.</figcaption>
                     </figure>
+                    <figure class="shot">
+                        <div class="frame"><span></span><span></span><span></span><em>Detail rencana menu</em></div>
+                        <img src="{{ asset('manual-assets/shots/nutrition-show.png') }}" alt="Detail rencana menu dan gizi" loading="lazy">
+                        <figcaption>Detail menu: komposisi, target gizi per porsi, estimasi biaya, dan komponen makan.</figcaption>
+                    </figure>
                 </div>
 
                 <h3>Menyusun menu</h3>
@@ -780,6 +816,19 @@
                     Mencatat batch pengolahan hasil produksi (mis. penggilingan, pengeringan,
                     pengemasan) menjadi produk dengan nilai jual lebih tinggi.
                 </p>
+                <div class="shots">
+                    <figure class="shot">
+                        <div class="frame"><span></span><span></span><span></span><em>Daftar batch pengolahan</em></div>
+                        <img src="{{ asset('manual-assets/shots/processing-index.png') }}" alt="Daftar pengolahan hasil" loading="lazy">
+                        <figcaption>Rekap batch pengolahan, jumlah produksi, biaya, dan status tiap batch.</figcaption>
+                    </figure>
+                    <figure class="shot">
+                        <div class="frame"><span></span><span></span><span></span><em>Detail batch</em></div>
+                        <img src="{{ asset('manual-assets/shots/processing-show.png') }}" alt="Detail batch pengolahan" loading="lazy">
+                        <figcaption>Detail batch: jumlah produksi, biaya produksi, harga jual per satuan, dan masa berlaku produk.</figcaption>
+                    </figure>
+                </div>
+
                 <h3>Menambah batch</h3>
                 <p>Isi <strong>Kode Batch</strong>, <strong>Nama Produk</strong>, <strong>Unit</strong>, <strong>Jenis Pengolahan</strong>, <strong>Tanggal Produksi</strong>, <strong>Tanggal Kadaluarsa</strong>, <strong>Jumlah Produksi</strong>, <strong>Satuan Output</strong>, <strong>Biaya Produksi</strong>, <strong>Harga Jual per Satuan</strong>, dan <strong>Status</strong>.</p>
                 <div class="note">
@@ -800,6 +849,11 @@
                         <div class="frame"><span></span><span></span><span></span><em>Inventaris &amp; stok</em></div>
                         <img src="{{ asset('manual-assets/shots/inventory-index.png') }}" alt="Inventaris dan stok" loading="lazy">
                         <figcaption>Statistik nilai stok, item di bawah minimum, dan daftar barang.</figcaption>
+                    </figure>
+                    <figure class="shot">
+                        <div class="frame"><span></span><span></span><span></span><em>Detail item inventaris</em></div>
+                        <img src="{{ asset('manual-assets/shots/inventory-show.png') }}" alt="Detail item inventaris" loading="lazy">
+                        <figcaption>Detail item: stok saat ini, stok minimum, harga, serta riwayat transaksi masuk/keluar.</figcaption>
                     </figure>
                 </div>
 
@@ -822,6 +876,11 @@
                         <div class="frame"><span></span><span></span><span></span><em>Daftar stock opname</em></div>
                         <img src="{{ asset('manual-assets/shots/stock-opname-index.png') }}" alt="Daftar stock opname" loading="lazy">
                         <figcaption>Riwayat opname per unit, jenis, tanggal, dan statusnya.</figcaption>
+                    </figure>
+                    <figure class="shot">
+                        <div class="frame"><span></span><span></span><span></span><em>Detail stock opname</em></div>
+                        <img src="{{ asset('manual-assets/shots/stock-opname-show.png') }}" alt="Detail stock opname" loading="lazy">
+                        <figcaption>Detail opname: daftar item yang dihitung, stok sistem vs fisik, dan selisihnya.</figcaption>
                     </figure>
                 </div>
 
@@ -872,6 +931,11 @@
                         <img src="{{ asset('manual-assets/shots/financial-index.png') }}" alt="Keuangan dan anggaran" loading="lazy">
                         <figcaption>Pemasukan bulan ini, pengeluaran, saldo total, dan daftar transaksi.</figcaption>
                     </figure>
+                    <figure class="shot">
+                        <div class="frame"><span></span><span></span><span></span><em>Detail transaksi</em></div>
+                        <img src="{{ asset('manual-assets/shots/financial-show.png') }}" alt="Detail transaksi keuangan" loading="lazy">
+                        <figcaption>Detail transaksi: tipe, sumber dana, metode, kategori, jumlah, dan riwayat status.</figcaption>
+                    </figure>
                 </div>
 
                 <h3>Menambah transaksi</h3>
@@ -891,6 +955,11 @@
                         <div class="frame"><span></span><span></span><span></span><em>Pelatihan</em></div>
                         <img src="{{ asset('manual-assets/shots/training-index.png') }}" alt="Daftar pelatihan" loading="lazy">
                         <figcaption>Daftar pelatihan beserta status, jadwal, dan jumlah peserta.</figcaption>
+                    </figure>
+                    <figure class="shot">
+                        <div class="frame"><span></span><span></span><span></span><em>Detail pelatihan</em></div>
+                        <img src="{{ asset('manual-assets/shots/training-show.png') }}" alt="Detail pelatihan" loading="lazy">
+                        <figcaption>Detail pelatihan: materi, jadwal, kapasitas, daftar peserta, dan sertifikat.</figcaption>
                     </figure>
                 </div>
 
@@ -1067,6 +1136,14 @@
                     Mencatat perubahan data penting beserta pelaku dan waktunya. Gunakan menu ini untuk
                     menelusuri siapa yang mengubah atau menghapus suatu data.
                 </p>
+
+                <div class="shots">
+                    <figure class="shot wide">
+                        <div class="frame"><span></span><span></span><span></span><em>Audit trail</em></div>
+                        <img src="{{ asset('manual-assets/shots/admin-audit-trail.png') }}" alt="Audit trail aplikasi" loading="lazy">
+                        <figcaption>Audit trail: filter user/event/tanggal, daftar aktivitas (create, update, delete), dan ekspor CSV.</figcaption>
+                    </figure>
+                </div>
 
                 <h3>Slow Query</h3>
                 <p>
