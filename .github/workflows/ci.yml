@@ -65,3 +65,47 @@ jobs:
 
       - name: Jalankan test
         run: php artisan test
+
+      - name: Hasilkan spesifikasi OpenAPI
+        run: php artisan l5-swagger:generate
+
+      - name: Cek halaman dan aset Swagger UI
+        run: |
+          set -uo pipefail
+
+          php artisan serve --host=127.0.0.1 --port=8000 >/tmp/serve.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill "$SERVER_PID" 2>/dev/null || true' EXIT
+
+          for _ in $(seq 1 30); do
+            if curl -fsS -o /dev/null http://127.0.0.1:8000/api/documentation; then break; fi
+            sleep 1
+          done
+
+          fail=0
+          expect_status() {
+            code=$(curl -s -o /dev/null -w '%{http_code}' "$1")
+            printf '%s %s\n' "$code" "$1"
+            [ "$code" = "$2" ] || fail=1
+          }
+
+          expect_status http://127.0.0.1:8000/api/documentation 200
+          for asset in swagger-ui.css swagger-ui-bundle.js swagger-ui-standalone-preset.js; do
+            expect_status "http://127.0.0.1:8000/docs/asset/$asset" 200
+          done
+
+          curl -fsS http://127.0.0.1:8000/api/documentation \
+            | grep -q 'docs/asset/swagger-ui-bundle.js?v=' \
+            || { echo 'URL aset tidak memakai parameter versi'; fail=1; }
+
+          headers=$(curl -s -o /dev/null -D - http://127.0.0.1:8000/docs/asset/tidak-ada.js | tr -d '\r')
+          echo "$headers" | grep -qi '^HTTP/.* 404' || { echo 'Aset tak dikenal bukan 404'; fail=1; }
+          echo "$headers" | grep -qi '^cache-control:.*no-store' || { echo 'Cache-Control no-store tidak ada pada 404'; fail=1; }
+          echo "$headers" | grep -qi '^vary:.*Accept-Encoding' || { echo 'Vary: Accept-Encoding tidak ada pada 404'; fail=1; }
+
+          if [ "$fail" -ne 0 ]; then
+            echo '--- log artisan serve ---'
+            cat /tmp/serve.log
+          fi
+
+          exit "$fail"
