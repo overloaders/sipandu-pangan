@@ -40,7 +40,7 @@
         pre code { background: none; color: inherit; padding: 0; }
 
         /* Layout */
-        .layout { display: flex; align-items: flex-start; max-width: 1400px; margin: 0 auto; }
+        .layout { display: flex; align-items: flex-start; width: 100%; }
         .sidebar {
             width: 300px;
             flex: 0 0 300px;
@@ -119,6 +119,10 @@
         .hero .meta i { color: #10b981; margin-right: 5px; }
 
         .content { padding: 0 56px; }
+        .content section { width: 100%; max-width: 1120px; margin-left: auto; margin-right: auto; }
+
+        /* Daftar isi versi mobile */
+        .toc-mobile { display: none; }
         section { padding-top: 42px; }
         section > h2 {
             font-size: 23px; font-weight: 700; color: #0f172a;
@@ -247,8 +251,32 @@
         }
         .mobile-toc a { color: #6ee7b7; font-weight: 600; font-size: 13px; }
 
+        .toc-mobile details {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 0 4px;
+            margin-bottom: 4px;
+        }
+        .toc-mobile summary {
+            cursor: pointer;
+            list-style: none;
+            padding: 14px 14px;
+            font-weight: 700;
+            font-size: 14px;
+            color: #0f172a;
+        }
+        .toc-mobile summary::-webkit-details-marker { display: none; }
+        .toc-mobile summary::after { content: "▾"; float: right; color: #10b981; }
+        .toc-mobile details[open] summary::after { content: "▴"; }
+        .toc-mobile ol { margin: 0 14px 14px 30px; }
+        .toc-mobile li { margin-bottom: 6px; }
+        .toc-mobile a { font-size: 13.5px; }
+
         @media (max-width: 1080px) {
+            html { scroll-padding-top: 68px; }
             .sidebar { display: none; }
+            .toc-mobile { display: block; margin-top: 26px; }
             .mobile-toc { display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 13px; }
             .hero, .content { padding-left: 26px; padding-right: 26px; }
             .hero { padding-top: 38px; padding-bottom: 34px; }
@@ -341,6 +369,42 @@
 
         <div class="content">
 
+            <div class="toc-mobile">
+                <details>
+                    <summary>Daftar Isi — 28 bagian</summary>
+                    <ol>
+                        <li><a href="#tentang">Tentang Aplikasi</a></li>
+                        <li><a href="#akses">Masuk &amp; Peran Pengguna</a></li>
+                        <li><a href="#navigasi">Navigasi &amp; Tampilan</a></li>
+                        <li><a href="#dashboard">Dashboard</a></li>
+                        <li><a href="#wbp">Registrasi WBP</a></li>
+                        <li><a href="#blok-kamar">Blok &amp; Kamar</a></li>
+                        <li><a href="#laporan-harian">Laporan Harian</a></li>
+                        <li><a href="#program-pangan">Program Pangan</a></li>
+                        <li><a href="#lahan">Manajemen Lahan</a></li>
+                        <li><a href="#pertanian">Pertanian &amp; Panen</a></li>
+                        <li><a href="#peternakan">Peternakan</a></li>
+                        <li><a href="#perikanan">Perikanan</a></li>
+                        <li><a href="#nutrisi">Nutrisi &amp; Menu</a></li>
+                        <li><a href="#pengolahan">Pengolahan Hasil</a></li>
+                        <li><a href="#inventaris">Inventaris &amp; Stok</a></li>
+                        <li><a href="#stock-opname">Stock Opname</a></li>
+                        <li><a href="#distribusi">Distribusi</a></li>
+                        <li><a href="#keuangan">Keuangan &amp; Anggaran</a></li>
+                        <li><a href="#pelatihan">Pelatihan</a></li>
+                        <li><a href="#sertifikasi">Sertifikasi &amp; Kepatuhan</a></li>
+                        <li><a href="#analitik">Analitik</a></li>
+                        <li><a href="#laporan">Pusat Laporan</a></li>
+                        <li><a href="#master">Data Master</a></li>
+                        <li><a href="#admin">Pengaturan &amp; Audit</a></li>
+                        <li><a href="#alur-status">Alur Status Data</a></li>
+                        <li><a href="#api">REST API</a></li>
+                        <li><a href="#kendala">Kendala Umum</a></li>
+                        <li><a href="#pengembang">Pengembang</a></li>
+                    </ol>
+                </details>
+            </div>
+
             <section id="tentang">
                 <h2><span class="num">1</span>Tentang Aplikasi</h2>
                 <p>
@@ -404,7 +468,7 @@
                 <div class="shots">
                     <figure class="shot wide">
                         <div class="frame"><span></span><span></span><span></span><em>Halaman login</em></div>
-                        <img src="{{ asset('manual-assets/shots/login.png') }}" alt="Halaman login SIDUMA PANGAN" loading="lazy">
+                        <img src="{{ asset('manual-assets/shots/login.png') }}" alt="Halaman login SIDUMA PANGAN" width="1280" height="800" loading="lazy">
                         <figcaption>Halaman login: formulir email &amp; password, opsi “Ingat saya”, dan tombol <strong>Baca Manual Book</strong> di bawah tombol Masuk.</figcaption>
                     </figure>
                 </div>
@@ -513,7 +577,7 @@
                 <div class="shots">
                     <figure class="shot wide">
                         <div class="frame"><span></span><span></span><span></span><em>Dashboard — tampilan desktop</em></div>
-                        <img src="{{ asset('manual-assets/shots/dashboard-desktop.png') }}" alt="Dashboard SIDUMA PANGAN" loading="lazy">
+                        <img src="{{ asset('manual-assets/shots/dashboard-desktop.png') }}" alt="Dashboard SIDUMA PANGAN" width="1280" height="800" loading="lazy">
                         <figcaption>Dashboard: filter periode &amp; unit, tombol Export PDF, dan kartu KPI ringkasan.</figcaption>
                     </figure>
                 </div>
@@ -541,12 +605,12 @@
                 <div class="shots">
                     <figure class="shot wide">
                         <div class="frame"><span></span><span></span><span></span><em>Registrasi WBP — daftar</em></div>
-                        <img src="{{ asset('manual-assets/shots/wbp-index-desktop.png') }}" alt="Daftar WBP" loading="lazy">
+                        <img src="{{ asset('manual-assets/shots/wbp-index-desktop.png') }}" alt="Daftar WBP" width="1280" height="800" loading="lazy">
                         <figcaption>Ringkasan total/aktif/baru/dikeluarkan, pencarian, filter status, serta aksi lihat–ubah–hapus.</figcaption>
                     </figure>
                     <figure class="shot tall">
                         <div class="frame"><span></span><span></span><span></span><em>Detail WBP</em></div>
-                        <img src="{{ asset('manual-assets/shots/wbp-show.png') }}" alt="Detail WBP" loading="lazy">
+                        <img src="{{ asset('manual-assets/shots/wbp-show.png') }}" alt="Detail WBP" width="1280" height="800" loading="lazy">
                         <figcaption>Halaman detail berisi identitas, status, dokumen, dan anggota keluarga.</figcaption>
                     </figure>
                 </div>
@@ -578,12 +642,12 @@
                 <div class="shots">
                     <figure class="shot tall">
                         <div class="frame"><span></span><span></span><span></span><em>Daftar Blok</em></div>
-                        <img src="{{ asset('manual-assets/shots/blocks-index.png') }}" alt="Daftar blok" loading="lazy">
+                        <img src="{{ asset('manual-assets/shots/blocks-index.png') }}" alt="Daftar blok" width="1280" height="800" loading="lazy">
                         <figcaption>Statistik total blok &amp; kamar, filter unit, dan daftar blok beserta kapasitas.</figcaption>
                     </figure>
                     <figure class="shot tall">
                         <div class="frame"><span></span><span></span><span></span><em>Detail Blok</em></div>
-                        <img src="{{ asset('manual-assets/shots/blocks-show.png') }}" alt="Detail blok" loading="lazy">
+                        <img src="{{ asset('manual-assets/shots/blocks-show.png') }}" alt="Detail blok" width="1280" height="800" loading="lazy">
                         <figcaption>Detail blok berisi daftar kamar, kapasitas, dan status hunian.</figcaption>
                     </figure>
                 </div>
@@ -611,12 +675,12 @@
                 <div class="shots">
                     <figure class="shot tall">
                         <div class="frame"><span></span><span></span><span></span><em>Daftar laporan harian</em></div>
-                        <img src="{{ asset('manual-assets/shots/daily-reports-index.png') }}" alt="Daftar laporan harian" loading="lazy">
+                        <img src="{{ asset('manual-assets/shots/daily-reports-index.png') }}" alt="Daftar laporan harian" width="1280" height="800" loading="lazy">
                         <figcaption>Filter tanggal/status, ringkasan laporan, dan status tiap laporan.</figcaption>
                     </figure>
                     <figure class="shot tall">
                         <div class="frame"><span></span><span></span><span></span><em>Detail laporan harian</em></div>
-                        <img src="{{ asset('manual-assets/shots/daily-reports-show.png') }}" alt="Detail laporan harian" loading="lazy">
+                        <img src="{{ asset('manual-assets/shots/daily-reports-show.png') }}" alt="Detail laporan harian" width="1280" height="800" loading="lazy">
                         <figcaption>Detail laporan beserta rincian kegiatan dan aksi sesuai status.</figcaption>
                     </figure>
                 </div>
@@ -646,12 +710,12 @@
                 <div class="shots">
                     <figure class="shot tall">
                         <div class="frame"><span></span><span></span><span></span><em>Daftar program pangan</em></div>
-                        <img src="{{ asset('manual-assets/shots/food-programs-index.png') }}" alt="Daftar program pangan" loading="lazy">
+                        <img src="{{ asset('manual-assets/shots/food-programs-index.png') }}" alt="Daftar program pangan" width="1280" height="800" loading="lazy">
                         <figcaption>Statistik program, filter status/unit, dan daftar program.</figcaption>
                     </figure>
                     <figure class="shot tall">
                         <div class="frame"><span></span><span></span><span></span><em>Detail program</em></div>
-                        <img src="{{ asset('manual-assets/shots/food-programs-show.png') }}" alt="Detail program pangan" loading="lazy">
+                        <img src="{{ asset('manual-assets/shots/food-programs-show.png') }}" alt="Detail program pangan" width="1280" height="800" loading="lazy">
                         <figcaption>Detail program: anggaran, periode, peserta, dan kegiatan terkait.</figcaption>
                     </figure>
                 </div>
@@ -673,12 +737,12 @@
                 <div class="shots">
                     <figure class="shot">
                         <div class="frame"><span></span><span></span><span></span><em>Daftar lahan</em></div>
-                        <img src="{{ asset('manual-assets/shots/land-plots-index.png') }}" alt="Daftar lahan" loading="lazy">
+                        <img src="{{ asset('manual-assets/shots/land-plots-index.png') }}" alt="Daftar lahan" width="1280" height="800" loading="lazy">
                         <figcaption>Ringkasan luas lahan, jumlah lahan produktif, dan daftar lahan per unit.</figcaption>
                     </figure>
                     <figure class="shot">
                         <div class="frame"><span></span><span></span><span></span><em>Detail lahan</em></div>
-                        <img src="{{ asset('manual-assets/shots/land-plots-show.png') }}" alt="Detail lahan" loading="lazy">
+                        <img src="{{ asset('manual-assets/shots/land-plots-show.png') }}" alt="Detail lahan" width="1280" height="800" loading="lazy">
                         <figcaption>Detail lahan: luas, jenis tanah, irigasi, status, serta daftar rencana pertanian di lahan tersebut.</figcaption>
                     </figure>
                 </div>
@@ -698,22 +762,22 @@
                 <div class="shots">
                     <figure class="shot tall">
                         <div class="frame"><span></span><span></span><span></span><em>Rencana kerja pertanian</em></div>
-                        <img src="{{ asset('manual-assets/shots/farming-plans-index.png') }}" alt="Rencana kerja pertanian" loading="lazy">
+                        <img src="{{ asset('manual-assets/shots/farming-plans-index.png') }}" alt="Rencana kerja pertanian" width="1280" height="800" loading="lazy">
                         <figcaption>Statistik lahan tersedia, tanaman berjalan, panen bulan ini, dan pendapatan panen.</figcaption>
                     </figure>
                     <figure class="shot tall">
                         <div class="frame"><span></span><span></span><span></span><em>Detail rencana kerja</em></div>
-                        <img src="{{ asset('manual-assets/shots/farming-plans-show.png') }}" alt="Detail rencana kerja pertanian" loading="lazy">
+                        <img src="{{ asset('manual-assets/shots/farming-plans-show.png') }}" alt="Detail rencana kerja pertanian" width="1280" height="800" loading="lazy">
                         <figcaption>Detail rencana: jadwal tanam/panen, aktivitas, peserta, dan tombol input panen.</figcaption>
                     </figure>
                     <figure class="shot tall">
                         <div class="frame"><span></span><span></span><span></span><em>Hasil panen</em></div>
-                        <img src="{{ asset('manual-assets/shots/harvests-index.png') }}" alt="Daftar hasil panen" loading="lazy">
+                        <img src="{{ asset('manual-assets/shots/harvests-index.png') }}" alt="Daftar hasil panen" width="1280" height="800" loading="lazy">
                         <figcaption>Rekap panen: total berat, kualitas, harga jual, dan pendapatan.</figcaption>
                     </figure>
                     <figure class="shot">
                         <div class="frame"><span></span><span></span><span></span><em>Detail panen</em></div>
-                        <img src="{{ asset('manual-assets/shots/harvests-show.png') }}" alt="Detail hasil panen" loading="lazy">
+                        <img src="{{ asset('manual-assets/shots/harvests-show.png') }}" alt="Detail hasil panen" width="1280" height="800" loading="lazy">
                         <figcaption>Detail panen: rencana kerja, lahan asal, berat, kualitas, harga jual, dan total pendapatan.</figcaption>
                     </figure>
                 </div>
@@ -738,12 +802,12 @@
                 <div class="shots">
                     <figure class="shot tall">
                         <div class="frame"><span></span><span></span><span></span><em>Daftar kandang</em></div>
-                        <img src="{{ asset('manual-assets/shots/livestock-barns-index.png') }}" alt="Daftar kandang" loading="lazy">
+                        <img src="{{ asset('manual-assets/shots/livestock-barns-index.png') }}" alt="Daftar kandang" width="1280" height="800" loading="lazy">
                         <figcaption>Statistik kandang &amp; populasi, filter unit, dan daftar kandang.</figcaption>
                     </figure>
                     <figure class="shot tall">
                         <div class="frame"><span></span><span></span><span></span><em>Detail kandang</em></div>
-                        <img src="{{ asset('manual-assets/shots/livestock-barns-show.png') }}" alt="Detail kandang" loading="lazy">
+                        <img src="{{ asset('manual-assets/shots/livestock-barns-show.png') }}" alt="Detail kandang" width="1280" height="800" loading="lazy">
                         <figcaption>Detail kandang: populasi, riwayat pakan, dan catatan kesehatan ternak.</figcaption>
                     </figure>
                 </div>
@@ -769,12 +833,12 @@
                 <div class="shots">
                     <figure class="shot">
                         <div class="frame"><span></span><span></span><span></span><em>Daftar kolam</em></div>
-                        <img src="{{ asset('manual-assets/shots/fish-ponds-index.png') }}" alt="Daftar kolam ikan" loading="lazy">
+                        <img src="{{ asset('manual-assets/shots/fish-ponds-index.png') }}" alt="Daftar kolam ikan" width="1280" height="800" loading="lazy">
                         <figcaption>Statistik kolam, luas total, dan daftar kolam per unit.</figcaption>
                     </figure>
                     <figure class="shot">
                         <div class="frame"><span></span><span></span><span></span><em>Detail kolam</em></div>
-                        <img src="{{ asset('manual-assets/shots/fish-ponds-show.png') }}" alt="Detail kolam ikan" loading="lazy">
+                        <img src="{{ asset('manual-assets/shots/fish-ponds-show.png') }}" alt="Detail kolam ikan" width="1280" height="800" loading="lazy">
                         <figcaption>Detail kolam: luas, kedalaman, volume, sumber air, dan catatan budidaya ikan.</figcaption>
                     </figure>
                 </div>
@@ -795,12 +859,12 @@
                 <div class="shots">
                     <figure class="shot tall">
                         <div class="frame"><span></span><span></span><span></span><em>Rencana menu &amp; gizi</em></div>
-                        <img src="{{ asset('manual-assets/shots/nutrition-index.png') }}" alt="Rencana menu dan gizi" loading="lazy">
+                        <img src="{{ asset('manual-assets/shots/nutrition-index.png') }}" alt="Rencana menu dan gizi" width="1280" height="800" loading="lazy">
                         <figcaption>Daftar rencana menu, periode berlaku, target gizi, dan status.</figcaption>
                     </figure>
                     <figure class="shot">
                         <div class="frame"><span></span><span></span><span></span><em>Detail rencana menu</em></div>
-                        <img src="{{ asset('manual-assets/shots/nutrition-show.png') }}" alt="Detail rencana menu dan gizi" loading="lazy">
+                        <img src="{{ asset('manual-assets/shots/nutrition-show.png') }}" alt="Detail rencana menu dan gizi" width="1280" height="800" loading="lazy">
                         <figcaption>Detail menu: komposisi, target gizi per porsi, estimasi biaya, dan komponen makan.</figcaption>
                     </figure>
                 </div>
@@ -819,12 +883,12 @@
                 <div class="shots">
                     <figure class="shot">
                         <div class="frame"><span></span><span></span><span></span><em>Daftar batch pengolahan</em></div>
-                        <img src="{{ asset('manual-assets/shots/processing-index.png') }}" alt="Daftar pengolahan hasil" loading="lazy">
+                        <img src="{{ asset('manual-assets/shots/processing-index.png') }}" alt="Daftar pengolahan hasil" width="1280" height="800" loading="lazy">
                         <figcaption>Rekap batch pengolahan, jumlah produksi, biaya, dan status tiap batch.</figcaption>
                     </figure>
                     <figure class="shot">
                         <div class="frame"><span></span><span></span><span></span><em>Detail batch</em></div>
-                        <img src="{{ asset('manual-assets/shots/processing-show.png') }}" alt="Detail batch pengolahan" loading="lazy">
+                        <img src="{{ asset('manual-assets/shots/processing-show.png') }}" alt="Detail batch pengolahan" width="1280" height="800" loading="lazy">
                         <figcaption>Detail batch: jumlah produksi, biaya produksi, harga jual per satuan, dan masa berlaku produk.</figcaption>
                     </figure>
                 </div>
@@ -847,12 +911,12 @@
                 <div class="shots">
                     <figure class="shot tall">
                         <div class="frame"><span></span><span></span><span></span><em>Inventaris &amp; stok</em></div>
-                        <img src="{{ asset('manual-assets/shots/inventory-index.png') }}" alt="Inventaris dan stok" loading="lazy">
+                        <img src="{{ asset('manual-assets/shots/inventory-index.png') }}" alt="Inventaris dan stok" width="1280" height="800" loading="lazy">
                         <figcaption>Statistik nilai stok, item di bawah minimum, dan daftar barang.</figcaption>
                     </figure>
                     <figure class="shot">
                         <div class="frame"><span></span><span></span><span></span><em>Detail item inventaris</em></div>
-                        <img src="{{ asset('manual-assets/shots/inventory-show.png') }}" alt="Detail item inventaris" loading="lazy">
+                        <img src="{{ asset('manual-assets/shots/inventory-show.png') }}" alt="Detail item inventaris" width="1280" height="800" loading="lazy">
                         <figcaption>Detail item: stok saat ini, stok minimum, harga, serta riwayat transaksi masuk/keluar.</figcaption>
                     </figure>
                 </div>
@@ -874,12 +938,12 @@
                 <div class="shots">
                     <figure class="shot tall">
                         <div class="frame"><span></span><span></span><span></span><em>Daftar stock opname</em></div>
-                        <img src="{{ asset('manual-assets/shots/stock-opname-index.png') }}" alt="Daftar stock opname" loading="lazy">
+                        <img src="{{ asset('manual-assets/shots/stock-opname-index.png') }}" alt="Daftar stock opname" width="1280" height="800" loading="lazy">
                         <figcaption>Riwayat opname per unit, jenis, tanggal, dan statusnya.</figcaption>
                     </figure>
                     <figure class="shot">
                         <div class="frame"><span></span><span></span><span></span><em>Detail stock opname</em></div>
-                        <img src="{{ asset('manual-assets/shots/stock-opname-show.png') }}" alt="Detail stock opname" loading="lazy">
+                        <img src="{{ asset('manual-assets/shots/stock-opname-show.png') }}" alt="Detail stock opname" width="1280" height="800" loading="lazy">
                         <figcaption>Detail opname: daftar item yang dihitung, stok sistem vs fisik, dan selisihnya.</figcaption>
                     </figure>
                 </div>
@@ -903,12 +967,12 @@
                 <div class="shots">
                     <figure class="shot tall">
                         <div class="frame"><span></span><span></span><span></span><em>Daftar distribusi</em></div>
-                        <img src="{{ asset('manual-assets/shots/distributions-index.png') }}" alt="Daftar distribusi" loading="lazy">
+                        <img src="{{ asset('manual-assets/shots/distributions-index.png') }}" alt="Daftar distribusi" width="1280" height="800" loading="lazy">
                         <figcaption>Rekap distribusi, total nilai, dan status penyaluran.</figcaption>
                     </figure>
                     <figure class="shot tall">
                         <div class="frame"><span></span><span></span><span></span><em>Detail distribusi</em></div>
-                        <img src="{{ asset('manual-assets/shots/distributions-show.png') }}" alt="Detail distribusi" loading="lazy">
+                        <img src="{{ asset('manual-assets/shots/distributions-show.png') }}" alt="Detail distribusi" width="1280" height="800" loading="lazy">
                         <figcaption>Detail penerima, daftar item yang disalurkan, dan status.</figcaption>
                     </figure>
                 </div>
@@ -921,19 +985,19 @@
                 <h2><span class="num">18</span>Keuangan &amp; Anggaran</h2>
                 <p>
                     Mencatat pemasukan dan pengeluaran program, dikelompokkan per kategori dan sumber
-                    dana. Menu ini umumnya dikelola peran <span class="badge-role">Keuangan</span>,
-                    <span class="badge-role">Admin</span>, dan <span class="badge-role">Super Admin</span>.
+                    dana. Menu ini umumnya dikelola peran <strong>Keuangan</strong>, <strong>Admin</strong>,
+                    dan <strong>Super Admin</strong>.
                 </p>
 
                 <div class="shots">
                     <figure class="shot tall">
                         <div class="frame"><span></span><span></span><span></span><em>Keuangan &amp; anggaran</em></div>
-                        <img src="{{ asset('manual-assets/shots/financial-index.png') }}" alt="Keuangan dan anggaran" loading="lazy">
+                        <img src="{{ asset('manual-assets/shots/financial-index.png') }}" alt="Keuangan dan anggaran" width="1280" height="800" loading="lazy">
                         <figcaption>Pemasukan bulan ini, pengeluaran, saldo total, dan daftar transaksi.</figcaption>
                     </figure>
                     <figure class="shot">
                         <div class="frame"><span></span><span></span><span></span><em>Detail transaksi</em></div>
-                        <img src="{{ asset('manual-assets/shots/financial-show.png') }}" alt="Detail transaksi keuangan" loading="lazy">
+                        <img src="{{ asset('manual-assets/shots/financial-show.png') }}" alt="Detail transaksi keuangan" width="1280" height="800" loading="lazy">
                         <figcaption>Detail transaksi: tipe, sumber dana, metode, kategori, jumlah, dan riwayat status.</figcaption>
                     </figure>
                 </div>
@@ -953,12 +1017,12 @@
                 <div class="shots">
                     <figure class="shot tall">
                         <div class="frame"><span></span><span></span><span></span><em>Pelatihan</em></div>
-                        <img src="{{ asset('manual-assets/shots/training-index.png') }}" alt="Daftar pelatihan" loading="lazy">
+                        <img src="{{ asset('manual-assets/shots/training-index.png') }}" alt="Daftar pelatihan" width="1280" height="800" loading="lazy">
                         <figcaption>Daftar pelatihan beserta status, jadwal, dan jumlah peserta.</figcaption>
                     </figure>
                     <figure class="shot">
                         <div class="frame"><span></span><span></span><span></span><em>Detail pelatihan</em></div>
-                        <img src="{{ asset('manual-assets/shots/training-show.png') }}" alt="Detail pelatihan" loading="lazy">
+                        <img src="{{ asset('manual-assets/shots/training-show.png') }}" alt="Detail pelatihan" width="1280" height="800" loading="lazy">
                         <figcaption>Detail pelatihan: materi, jadwal, kapasitas, daftar peserta, dan sertifikat.</figcaption>
                     </figure>
                 </div>
@@ -978,12 +1042,12 @@
                 <div class="shots">
                     <figure class="shot tall">
                         <div class="frame"><span></span><span></span><span></span><em>Daftar sertifikasi</em></div>
-                        <img src="{{ asset('manual-assets/shots/compliance-index.png') }}" alt="Daftar sertifikasi" loading="lazy">
+                        <img src="{{ asset('manual-assets/shots/compliance-index.png') }}" alt="Daftar sertifikasi" width="1280" height="800" loading="lazy">
                         <figcaption>Statistik kepatuhan, daftar pemeriksaan, masa berlaku, dan status.</figcaption>
                     </figure>
                     <figure class="shot tall">
                         <div class="frame"><span></span><span></span><span></span><em>Detail sertifikasi</em></div>
-                        <img src="{{ asset('manual-assets/shots/compliance-show.png') }}" alt="Detail sertifikasi" loading="lazy">
+                        <img src="{{ asset('manual-assets/shots/compliance-show.png') }}" alt="Detail sertifikasi" width="1280" height="800" loading="lazy">
                         <figcaption>Detail temuan, rekomendasi, skor, dan riwayat status.</figcaption>
                     </figure>
                 </div>
@@ -1006,17 +1070,17 @@
                 <div class="shots">
                     <figure class="shot tall">
                         <div class="frame"><span></span><span></span><span></span><em>Dashboard analitik</em></div>
-                        <img src="{{ asset('manual-assets/shots/analytics-dashboard.png') }}" alt="Dashboard analitik" loading="lazy">
+                        <img src="{{ asset('manual-assets/shots/analytics-dashboard.png') }}" alt="Dashboard analitik" width="1280" height="800" loading="lazy">
                         <figcaption>Total indikator, target, realisasi, pencapaian keseluruhan, dan grafik target vs realisasi.</figcaption>
                     </figure>
                     <figure class="shot tall">
                         <div class="frame"><span></span><span></span><span></span><em>Daftar indikator</em></div>
-                        <img src="{{ asset('manual-assets/shots/analytics-index.png') }}" alt="Daftar indikator analitik" loading="lazy">
+                        <img src="{{ asset('manual-assets/shots/analytics-index.png') }}" alt="Daftar indikator analitik" width="1280" height="800" loading="lazy">
                         <figcaption>Daftar indikator dengan target, realisasi, dan periode.</figcaption>
                     </figure>
                     <figure class="shot tall">
                         <div class="frame"><span></span><span></span><span></span><em>Detail indikator</em></div>
-                        <img src="{{ asset('manual-assets/shots/analytics-show.png') }}" alt="Detail indikator analitik" loading="lazy">
+                        <img src="{{ asset('manual-assets/shots/analytics-show.png') }}" alt="Detail indikator analitik" width="1280" height="800" loading="lazy">
                         <figcaption>Rincian indikator: satuan, target, realisasi, capaian, dan tren.</figcaption>
                     </figure>
                 </div>
@@ -1034,7 +1098,7 @@
                 <div class="shots">
                     <figure class="shot wide">
                         <div class="frame"><span></span><span></span><span></span><em>Pusat laporan</em></div>
-                        <img src="{{ asset('manual-assets/shots/reports-index.png') }}" alt="Pusat laporan" loading="lazy">
+                        <img src="{{ asset('manual-assets/shots/reports-index.png') }}" alt="Pusat laporan" width="1280" height="800" loading="lazy">
                         <figcaption>Pusat laporan: pilih jenis laporan, periode, dan unit sebelum mencetak.</figcaption>
                     </figure>
                 </div>
@@ -1093,7 +1157,7 @@
                 <div class="shots">
                     <figure class="shot tall">
                         <div class="frame"><span></span><span></span><span></span><em>Unit / Lapas</em></div>
-                        <img src="{{ asset('manual-assets/shots/master-units.png') }}" alt="Data master unit" loading="lazy">
+                        <img src="{{ asset('manual-assets/shots/master-units.png') }}" alt="Data master unit" width="1280" height="800" loading="lazy">
                         <figcaption>Daftar unit kerja/lapas sebagai dasar scoping data.</figcaption>
                     </figure>
                 </div>
@@ -1126,7 +1190,7 @@
                 <div class="shots">
                     <figure class="shot tall">
                         <div class="frame"><span></span><span></span><span></span><em>Manajemen user</em></div>
-                        <img src="{{ asset('manual-assets/shots/admin-users.png') }}" alt="Manajemen user" loading="lazy">
+                        <img src="{{ asset('manual-assets/shots/admin-users.png') }}" alt="Manajemen user" width="1280" height="800" loading="lazy">
                         <figcaption>Daftar pengguna beserta peran dan status akun.</figcaption>
                     </figure>
                 </div>
@@ -1140,7 +1204,7 @@
                 <div class="shots">
                     <figure class="shot wide">
                         <div class="frame"><span></span><span></span><span></span><em>Audit trail</em></div>
-                        <img src="{{ asset('manual-assets/shots/admin-audit-trail.png') }}" alt="Audit trail aplikasi" loading="lazy">
+                        <img src="{{ asset('manual-assets/shots/admin-audit-trail.png') }}" alt="Audit trail aplikasi" width="1280" height="800" loading="lazy">
                         <figcaption>Audit trail: filter user/event/tanggal, daftar aktivitas (create, update, delete), dan ekspor CSV.</figcaption>
                     </figure>
                 </div>
