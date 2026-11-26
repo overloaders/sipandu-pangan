@@ -66,7 +66,9 @@ return [
              */
             'middleware' => [
                 'api' => [],
-                'asset' => [],
+                'asset' => [
+                    \App\Http\Middleware\SwaggerAssetCacheHeaders::class,
+                ],
                 'docs' => [],
                 'oauth2_callback' => [],
             ],

@@ -130,6 +130,15 @@ Tanpa try_files, URL aset yang dilayani lewat route Laravel — seperti
 /docs/asset/*.css dan *.js milik Swagger UI — akan dijawab 404 oleh
 Nginx sehingga halaman /api/documentation tampil kosong.
 
+Selain itu, jika vhost memakai baris berikut padahal public/404.html
+tidak ada, Nginx akan mengganti halaman 404 Laravel sekaligus membuang
+header responsnya (termasuk Cache-Control):
+
+    error_page 404 /404.html;      -> komentari baris ini
+
+Tanpa baris tersebut, respons 404 dari aplikasi diteruskan apa adanya,
+sehingga middleware cache pada aset Swagger tetap berlaku.
+
 --------------------------------------------------------------------
  FILE PENTING DALAM PAKET INI
 --------------------------------------------------------------------
