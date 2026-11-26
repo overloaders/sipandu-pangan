@@ -300,6 +300,9 @@ troubleshooting) tersedia sebagai halaman publik di **`/manual`** dan dapat dibu
 halaman login tanpa perlu masuk. Isinya dilengkapi 43 screenshot antarmuka aplikasi
 (1280x800, diambil dari aplikasi yang berjalan).
 
+Versi PDF (A4, 51 halaman, ±3,5 MB) dapat diunduh langsung dari halaman login (**Unduh PDF**)
+atau dari berkas statis [`public/manual-assets/SIDUMA-PANGAN-Manual-Book.pdf`](public/manual-assets/SIDUMA-PANGAN-Manual-Book.pdf).
+
 ---
 
 ## 📚 Teknologi

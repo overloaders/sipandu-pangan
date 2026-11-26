@@ -291,12 +291,41 @@
         }
 
         @media print {
-            body { background: #fff; }
-            .sidebar, .mobile-toc { display: none; }
-            .main { width: 100%; }
-            section { page-break-inside: avoid; }
-            figure.shot { break-inside: avoid; }
-            a { color: #0f172a; }
+            @page { size: A4; margin: 14mm 12mm 16mm; }
+            html, body { background: #fff; font-size: 11pt; }
+            .sidebar, .mobile-toc, .toc-mobile { display: none !important; }
+            .layout { display: block; }
+            .main { width: 100%; padding: 0; }
+            .hero {
+                padding: 26px 26px 22px;
+                margin-bottom: 0;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .hero h1 { font-size: 30px; }
+            .hero p { font-size: 12px; }
+            .content { padding: 0; }
+            .content section { max-width: none; padding-top: 22px; }
+            section > h2 { page-break-after: avoid; }
+            h3, h4 { page-break-after: avoid; }
+            .shots { display: block; }
+            figure.shot {
+                margin-bottom: 12px;
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+            figure.shot .frame { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .note, .card, table, .dev, .steps > li, .badge-role {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            figure.shot img { width: 100%; height: auto; }
+            .shot-hint { font-size: 10px; }
+            a { color: #0f172a; text-decoration: none; }
+            .manual-pdf-actions, .manual-link { display: none !important; }
+            footer.manual-footer { margin-top: 26px; }
         }
     </style>
 </head>
@@ -347,6 +376,7 @@
 
         <div class="side-actions">
             <a href="{{ url('/login') }}" class="primary">&#8592; Kembali ke Login</a>
+            <a href="{{ asset('manual-assets/SIDUMA-PANGAN-Manual-Book.pdf') }}" download>&#8595; Unduh Manual (PDF)</a>
             <a href="{{ url('/api/documentation') }}">Dokumentasi API (Swagger)</a>
         </div>
     </aside>
@@ -402,6 +432,9 @@
                         <li><a href="#kendala">Kendala Umum</a></li>
                         <li><a href="#pengembang">Pengembang</a></li>
                     </ol>
+                    <p style="margin:0 14px 14px 30px;">
+                        <a href="{{ asset('manual-assets/SIDUMA-PANGAN-Manual-Book.pdf') }}" download>&#8595; Unduh versi PDF</a>
+                    </p>
                 </details>
             </div>
 
@@ -1337,7 +1370,10 @@ Accept: application/json</code></pre>
 
                 <footer class="manual-footer">
                     <span>&copy; {{ date('Y') }} SIDUMA PANGAN — Sistem Informasi Terpadu Pemasyarakatan dan Ketahanan Pangan</span>
-                    <span>Manual versi 1.0 &middot; <a href="{{ url('/login') }}">Kembali ke Login</a></span>
+                    <span class="manual-pdf-actions">
+                        <a href="{{ asset('manual-assets/SIDUMA-PANGAN-Manual-Book.pdf') }}" download>Unduh PDF</a>
+                        &middot; <a href="{{ url('/login') }}">Kembali ke Login</a>
+                    </span>
                 </footer>
             </section>
 

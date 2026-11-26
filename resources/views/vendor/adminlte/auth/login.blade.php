@@ -265,12 +265,19 @@
         .error-msg ul { margin: 0; padding-left: 16px; }
         .error-msg li { margin-bottom: 2px; }
 
+        .manual-actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
         .manual-link {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            margin-top: 18px;
             padding: 10px 16px;
             border: 1.5px solid #e2e8f0;
             border-radius: 10px;
@@ -393,10 +400,16 @@
             </button>
         </form>
 
-        <a href="{{ route('manual') }}" class="manual-link">
-            <i class="fas fa-book-open"></i>
-            Baca Manual Book
-        </a>
+        <div class="manual-actions">
+            <a href="{{ route('manual') }}" class="manual-link">
+                <i class="fas fa-book-open"></i>
+                Baca Manual Book
+            </a>
+            <a href="{{ asset('manual-assets/SIDUMA-PANGAN-Manual-Book.pdf') }}" class="manual-link" download>
+                <i class="fas fa-file-pdf"></i>
+                Unduh PDF
+            </a>
+        </div>
 
         <div class="form-footer">
             &copy; {{ date('Y') }} SIDUMA PANGAN &middot;
