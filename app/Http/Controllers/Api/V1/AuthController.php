@@ -19,6 +19,8 @@ use Illuminate\Support\Facades\Validator;
  *     @OA\Contact(email="admin@sipandupangan.go.id", name="SIDUMA PANGAN Team")
  * )
  *
+ * @OA\Server(url="https://pangan.asrar.my.id/api/v1", description="Production Server")
+ *
  * @OA\Server(url="http://localhost:8000/api/v1", description="Development Server")
  *
  * @OA\SecurityScheme(securityScheme="sanctum", type="http", scheme="bearer", bearerFormat="Laravel Sanctum Token")

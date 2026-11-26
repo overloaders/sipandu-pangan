@@ -89,6 +89,9 @@ perintah di atas.
   error tidak akan tercatat sama sekali.
 - Buka https://domain-anda.com — seharusnya muncul halaman login.
   Login dengan akun admin yang sudah ada di database.
+- Cek dokumentasi API di https://domain-anda.com/api/documentation.
+  Jika halamannya kosong, lihat catatan Nginx pada bagian SYARAT HOSTING.
+  Dokumentasi dihasilkan dengan: php artisan l5-swagger:generate
 
 --------------------------------------------------------------------
  CATATAN GIT / UPDATE KODE
@@ -114,6 +117,18 @@ Jika meng-update kode dengan git (pull/checkout/reset) di server:
   fileinfo, zip, exif
 - Modul Apache: mod_rewrite (untuk URL bersih / pretty URLs)
 - Document root harus menunjuk ke folder public/
+
+Jika memakai Nginx, blok location untuk aset statis WAJIB punya
+fallback ke Laravel, contoh:
+
+    location ~ .*\.(js|css|png|jpg|jpeg|gif|svg)$ {
+        expires 12h;
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+Tanpa try_files, URL aset yang dilayani lewat route Laravel — seperti
+/docs/asset/*.css dan *.js milik Swagger UI — akan dijawab 404 oleh
+Nginx sehingga halaman /api/documentation tampil kosong.
 
 --------------------------------------------------------------------
  FILE PENTING DALAM PAKET INI
